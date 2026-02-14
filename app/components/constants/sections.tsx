@@ -16,7 +16,7 @@ export const sections = [
     ),
     showButton: true,
     buttonText: "Get Started",
-    buttonLink: "https://get.jofrom.io/",
+    buttonLink: "https://www.jofrom.io/",
   },
   {
     id: "discovery",
@@ -42,6 +42,6 @@ export const sections = [
     content: "Strike the perfect balance between Human + Machine. Start your journey to operational excellence today.",
     showButton: true,
     buttonText: "Start Now",
-    buttonLink: "https://get.jofrom.io/",
+    buttonLink: "https://www.jofrom.io/",
   },
 ]
