@@ -1,0 +1,33 @@
+name: CI / Deploy
+
+on:
+  push:
+    branches:
+      - staging
+      - main
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  notify:
+    name: Deployment Triggered
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log deployment target
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/staging" ]; then
+            echo "🟢 Push to staging — deploy to STAGING environment"
+            echo "Environment: staging"
+          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "🔴 Push to main — deploy to PRODUCTION environment"
+            echo "Environment: production"
+          fi
+          echo "Repo: ${{ github.repository }}"
+          echo "Commit: ${{ github.sha }}"
+          echo ""
+          echo "ℹ️  This workflow is a placeholder. Configure deployment steps for this repo."
